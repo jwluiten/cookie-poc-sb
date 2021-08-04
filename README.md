@@ -57,11 +57,17 @@ $ ./mvn clean verify
 $ ./mvnw install
 #
 # build the docker image
-$ docker build -t cookie-poc:0.0.1-SNAPSHOT
+$ docker build -t cookie-poc:0.0.1-SNAPSHOT .
+#
+# find the IMAGE ID
+$ docker image ls
+#
+# tag the image
+$ docker tag <IMAGE ID> <username>/cookie-poc:0.0.1-SNAPSHOT
 #
 # login to Docker
 $ docker login -u "<username>" -p "<password>"
 #
 # push the image
-$ docker image push cookie-poc:0.0.1-SNAPSHOT
+$ docker image push <username>/cookie-poc:0.0.1-SNAPSHOT
 ```
