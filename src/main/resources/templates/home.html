@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>POC to test Apache's Header set Set-Cookie functionality</title>
+</head>
+<body>
+    <h1>Welcome to the Cookie POC</h1>
+
+    <p >
+        Clicking <a href="/redirect?url=%2F">/redirect?url=%2F</a> performs a GET on endpoint /redirect with a query
+        parameter url and value "/". The /redirect endpoint responds with 302 - Found and Location = "/". The response
+        contains 2 cookies: cxrsProcessed="true" and survivor="kilroy".
+    </p>
+    <p>
+        Established locale country: <span th:text="${#locale.country}">US</span>.
+    </p>
+</body>
+</html>
