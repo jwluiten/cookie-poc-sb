@@ -9,9 +9,10 @@ remove the cookie in the response by adding a header to the response:
 SetEnvIfNoCase Cookie cxrsProcessed=([^;]+) IS_CXRS_COOKIE_SET=yes
 
 <If "env('IS_CXRS_COOKIE_SET') == 'yes'" >
-Header set Set-Cookie "cxrsProcessed=true; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+Header set Set-Cookie "cxrsProcessed=true; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly"
 </If>
 ```
+
 After deploying (in production no less) we saw a number of cookies from an application
 missing and suspected the `header set Set-Cookie...` to be the cause of this. This POC
 was created to investigate this issue.
@@ -44,7 +45,7 @@ http://serverName:9090/actuator/openapi
 
 ## Docker
 
-### Build the docker image.
+### Build and push the docker image
 
 To build and push the image to docker perform the following steps
 
