@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>POC to test Apache's Header set Set-Cookie functionality</title>
@@ -13,8 +13,12 @@
     the Location (= "/"). The response contains 2 cookies: cxrsProcessed="true" which expires after 60 seconds and
     survivor="kilroy" which expires after 24 hours.
 </p>
-    The response goes through Apache which sets the expiration date of the cxrsProcessed cookie to a date in the
-    past (Thu, 01 Jan 1970 00:00:00 GMT). Upon receipt of this header in the response, browsers should remove the
+<p>
+    Clicking <a href="page2"/>here</a> brings you directly to page2, which sets a cookie called "page2"
+</p>
+<p>
+    In both cases the response goes through Apache which sets the expiration date of the cxrsProcessed cookie to a date
+    in the past (Thu, 01 Jan 1970 00:00:00 GMT). Upon receipt of this header in the response, browsers should remove the
     cxrsProcessed cookie. Other cookies must not be affected.
 </p>
 </body>
