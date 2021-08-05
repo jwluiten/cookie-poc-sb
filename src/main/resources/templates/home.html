@@ -13,7 +13,9 @@
     the Location (= "/"). The response contains 2 cookies: cxrsProcessed="true" which expires after 60 seconds and
     survivor="kilroy" which expires after 24 hours.
 </p>
-    The response goes through Apache which modifies the expiration date of the cookie to a date in the past.
+    The response goes through Apache which sets the expiration date of the cxrsProcessed cookie to a date in the
+    past (Thu, 01 Jan 1970 00:00:00 GMT). Upon receipt of this header in the response, browsers should remove the
+    cxrsProcessed cookie. Other cookies must not be affected.
 </p>
 </body>
 </html>
